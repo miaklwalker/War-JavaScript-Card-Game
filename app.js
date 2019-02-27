@@ -1,0 +1,13 @@
+function playGame(){
+    newHand();
+ }
+
+
+
+
+
+
+
+
+
+
