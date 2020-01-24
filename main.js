@@ -35,10 +35,8 @@ function decideWinner([player1, player2],round=false) {
     } = game
     
     if (player1.value === player2.value) {
-        if(outcome = 'war'){
-            return outcome = 'War Leads To More War'
-        }
         outcome = 'It looks like its WAR TIME'
+        console.log(round)
         decideWinner(game.war(),[player1,player2]);
     }
 
@@ -58,8 +56,7 @@ function decideWinner([player1, player2],round=false) {
     return outcome;
 }
 
-
-button.addEventListener('click', () => {
+const playRound = ()=>{
     let round = game.round();
     let [player1, player2] = round
     pCard.innerText = player1.face;
@@ -69,4 +66,6 @@ button.addEventListener('click', () => {
     status.innerText = decideWinner(round);
     pScore.innerText = game.player.playerPile.length;
     cScore.innerText = game.computer.playerPile.length;
-})
+}
+
+button.addEventListener('click',playRound)
