@@ -1,11 +1,22 @@
-class Players {
+export default class Player {
     constructor () {
     this.playerPile=[];
     this.playerSpare=[];
-    this.playerCard=[];
     }
-    grabCard (){
-    let drawnCard = this.playerPile.pop();
-            this.playerCard.push(drawnCard);
+    drawCard (){
+    return this.playerPile.pop();
+            
     }
+    init(deck){
+        for(let i = 0 ; i < 26 ; i++){
+            this.playerPile.push(deck.dealCards());
+        }
+    }
+    war(){
+        for(let i = 0 ; i < 3 ; i++){
+            this.playerSpare.push(this.drawCard());
+        }
+        return this.drawCard();
+    }
+
 }

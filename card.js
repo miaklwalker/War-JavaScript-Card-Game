@@ -1,14 +1,13 @@
 
 
-class Card {
-    constructor(suit,value,img,faceValue){
-        this.suit      = suit;
-        this.value     = value;
-        this.img       = img;
+export default class Card {
+    constructor({suit,face,value,faceValue}){
+        this.suit = suit;
+        this.face = face;
+        this.value = value;
         this.faceValue = faceValue;
     }
-        get cardInfo() {
-            return `${this.faceValue} of ${this.suit}`
+    get name(){
+        return `The ${this.faceValue} of ${this.suit}`
     }
-
 }
